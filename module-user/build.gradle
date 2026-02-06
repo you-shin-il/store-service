@@ -1,0 +1,22 @@
+plugins {
+    id 'java-library'
+}
+
+dependencies {
+    implementation project(':core-common')
+
+    // Spring Security 6
+    api 'org.springframework.boot:spring-boot-starter-security'
+    api 'org.springframework.boot:spring-boot-starter-web'
+
+    // JWT (jjwt 0.12.x — 0.11.x와 API 다름)
+    api 'io.jsonwebtoken:jjwt-api:0.12.6'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.6'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.6'
+
+    // Redis (세션/토큰 저장)
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
+    // Test
+    testImplementation 'org.springframework.security:spring-security-test'
+}

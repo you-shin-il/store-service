@@ -1,0 +1,87 @@
+spring:
+  # ============================================================
+  # JPA / Hibernate 6 설정
+  # ============================================================
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        # ============================================================
+        # Hibernate 6 시퀀스 전략 (CRITICAL)
+        # ============================================================
+        # 신규 프로젝트: 기본값(standard) 사용 → 엔티티별 시퀀스
+        # 기존 DB 마이그레이션: legacy 로 변경하면 hibernate_sequence 공유
+        #
+        # 본 프로젝트는 신규이므로 standard (기본값) 사용
+        # ============================================================
+        id:
+          db_structure_naming_strategy: standard
+
+        # batch insert 최적화 (SEQUENCE 전략과 함께 사용)
+        jdbc:
+          batch_size: 50
+          batch_versioned_data: true
+        order_inserts: true
+        order_updates: true
+
+        # Hibernate 6 기본 타임존 설정
+        timezone:
+          default_storage: NORMALIZE_UTC
+
+        format_sql: true
+
+  # ============================================================
+  # PostgreSQL 설정
+  # ============================================================
+  datasource:
+    url: jdbc:postgresql://localhost:5432/store_service
+    username: store
+    password: store1234
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+
+  # ============================================================
+  # Redis 설정 (Spring Boot 3: spring.data.redis)
+  # ============================================================
+  # CRITICAL: spring.redis.* 는 Boot 3에서 무시됨 (에러 없이 기본값 사용)
+  #           반드시 spring.data.redis.* 네임스페이스 사용
+  # ============================================================
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+  # ============================================================
+  # 네이버 SMTP 설정
+  # ============================================================
+  mail:
+    host: smtp.naver.com
+    port: 465
+    protocol: smtps
+    username: ${NAVER_EMAIL}
+    password: ${NAVER_PASSWORD}
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.ssl.enable: true
+      mail.smtp.ssl.trust: smtp.naver.com
+      mail.smtp.timeout: 5000
+      mail.smtp.connection-timeout: 5000
+
+# ============================================================
+# 메일 발송 on/off (개발 중 일일 발송 제한 방지)
+# ============================================================
+mail:
+  send:
+    enabled: true
+
+# ============================================================
+# JWT 설정
+# ============================================================
+jwt:
+  secret: ${JWT_SECRET:default-secret-key-for-development-only-change-in-production}
+  access-token-expiry: 1800000     # 30분 (ms)
+  refresh-token-expiry: 604800000  # 7일 (ms)
