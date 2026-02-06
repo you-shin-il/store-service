@@ -7,21 +7,21 @@
 
 ## 기술 스택
 
-| 구분       | 기술                                                    |
-|:-----------|:--------------------------------------------------------|
-| Language   | Java 17                                                 |
-| Framework  | Spring Boot 3.4.1, Spring Security 6, Spring Data JPA   |
-| Build      | Gradle 8.5 (Multi-Module)                               |
-| Database   | PostgreSQL 16, Hibernate 6, QueryDSL 5.1.0              |
-| Cache      | Redis 7                                                 |
-| Auth       | JWT (JJWT 0.12.6), BCrypt                               |
-| Storage    | MinIO (local) / AWS S3 (dev)                            |
-| Mail       | Naver SMTP (JavaMailSender)                             |
-| Event      | Spring ApplicationEvent (→ Kafka 전환 가능)             |
-| API Doc    | Swagger (springdoc-openapi)                             |
-| Frontend   | Vue 3, TypeScript, Vite, Pinia, Axios                   |
-| Infra      | Docker Compose (PostgreSQL, Redis, MinIO)                |
-| Test       | JUnit 5, H2 (테스트 DB), Spring Security Test           |
+| 구분        | 기술                                                    |
+|:----------|:------------------------------------------------------|
+| Language  | Java 17                                               |
+| Framework | Spring Boot 3.4.1, Spring Security 6, Spring Data JPA |
+| Build     | Gradle 8.5 (Multi-Module)                             |
+| Database  | PostgreSQL 16, Hibernate 6, QueryDSL 5.1.0            |
+| Cache     | Redis 7                                               |
+| Auth      | JWT (JJWT 0.12.6), BCrypt                             |
+| Storage   | MinIO (local) / AWS S3 (dev)                          |
+| Mail      | Naver SMTP (JavaMailSender)                           |
+| Event     | Spring ApplicationEvent (→ Kafka 전환 가능)               |
+| API Doc   | Swagger (springdoc-openapi)                           |
+| Frontend  | Vue 3, TypeScript, Vite, Pinia, Axios                 |
+| Infra     | Docker Compose (PostgreSQL, Redis, MinIO)             |
+| Test      | JUnit 5, H2 (테스트 DB), Spring Security Test            |
 
 ---
 
@@ -36,13 +36,13 @@
 
 ### 1.2 공통 모듈 만들기 — core-common (3.5h)
 
-- [ ] `1.2.1` build.gradle 수정 — web, jackson 의존성 추가 (0.5h)
-- [ ] `1.2.2` JPA Auditing 설정 — `JpaAuditingConfig.java` (0.25h)
-- [ ] `1.2.3` 도메인 이벤트 기본 클래스 — `DomainEvent.java` (0.5h)
-- [ ] `1.2.4` 이벤트 발행 인터페이스 — `DomainEventPublisher.java` (0.25h)
-- [ ] `1.2.5` Spring 이벤트 구현체 — `SpringEventPublisher.java` (0.5h)
-- [ ] `1.2.6` 공통 예외 클래스 — `BusinessException`, `EntityNotFoundException`, `GlobalExceptionHandler` (1h)
-- [ ] `1.2.7` 공통 API 응답 — `ApiResponse.java` (0.5h)
+- [x] `1.2.1` build.gradle 수정 — web, Jackson 의존성 추가 (0.5h)
+- [x] `1.2.2` JPA Auditing 설정 — `JpaAuditingConfig.java` (0.25h)
+- [x] `1.2.3` 도메인 이벤트 기본 클래스 — `DomainEvent.java` (0.5h)
+- [x] `1.2.4` 이벤트 발행 인터페이스 — `DomainEventPublisher.java` (0.25h)
+- [x] `1.2.5` Spring 이벤트 구현체 — `SpringEventPublisher.java` (0.5h)
+- [x] `1.2.6` 공통 예외 클래스 — `BusinessException`, `EntityNotFoundException`, `GlobalExceptionHandler` (1h)
+- [x] `1.2.7` 공통 API 응답 — `ApiResponse.java` (0.5h)
 
 ### 1.3 도메인 모듈 뼈대 만들기 (10h)
 
@@ -67,7 +67,7 @@
 
 - [ ] `1.5.1` 루트 src 삭제 (0.25h)
 - [ ] `1.5.2` `./gradlew clean build` 빌드 검증 (0.5h)
-- [ ] `1.5.3` Git 초기화 및 첫 커밋 (0.25h)
+- [x] `1.5.3` Git 초기화 및 첫 커밋 + GitHub 연동 (0.25h)
 
 ---
 
