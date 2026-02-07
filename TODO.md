@@ -49,12 +49,12 @@
 - [x] `1.3.1` module-product 완성 — `Category.java`, Product 보강 (1.5h)
 - [x] `1.3.2` module-order 생성 — `Order`, `OrderItem`, `OrderStatus`, 이벤트 (2h)
 - [x] `1.3.3` module-payment 생성 — `Payment`, `PaymentStatus`, `PaymentMethod`, 이벤트 (1.5h)
-- [ ] `1.3.4` module-cart 생성 — `Cart`, `CartItem` (1h)
-- [ ] `1.3.5` module-review 생성 — `Review`, `ReviewStatus` (0.5h)
-- [ ] `1.3.6` module-delivery 생성 — `Delivery`, `DeliveryStatus`, 이벤트 (1.5h)
-- [ ] `1.3.7` module-file 생성 — `FileMetadata`, `FileType`, `FileStorageService` (1h)
-- [ ] `1.3.8` module-notification 생성 — `EmailNotification`, `NotificationType`, `EmailService` (0.5h)
-- [ ] `1.3.9` module-user 보강 — `User`, `UserRole`, `AuthService`, `UserRepository` (0.5h)
+- [x] `1.3.4` module-cart 생성 — `Cart`, `CartItem` (1h)
+- [x] `1.3.5` module-review 생성 — `Review`, `ReviewStatus` (0.5h)
+- [x] `1.3.6` module-delivery 생성 — `Delivery`, `DeliveryStatus`, 이벤트 (1.5h)
+- [x] `1.3.7` module-file 생성 — `FileMetadata`, `FileType`, `FileStorageService` (1h)
+- [x] `1.3.8` module-notification 생성 — `EmailNotification`, `NotificationType`, `EmailService` (0.5h)
+- [x] `1.3.9` module-user 보강 — `User`, `UserRole`, `AuthService`, `UserRepository` (0.5h)
 
 ### 1.4 서버 앱 만들기 (3h)
 

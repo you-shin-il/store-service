@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation project(':core-common')
+    api project(':core-common')
 
     // Spring Security 6
     api 'org.springframework.boot:spring-boot-starter-security'
