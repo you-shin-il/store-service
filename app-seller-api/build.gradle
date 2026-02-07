@@ -1,0 +1,15 @@
+plugins {
+    id 'org.springframework.boot'
+}
+
+dependencies {
+    implementation project(':module-user')
+    implementation project(':module-product')
+    implementation project(':module-order')
+    implementation project(':module-delivery')
+    implementation project(':module-file')
+    implementation project(':module-notification')
+
+    // PostgreSQL
+    runtimeOnly 'org.postgresql:postgresql'
+}
