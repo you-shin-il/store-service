@@ -9,14 +9,6 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
-/**
- * 상품 엔티티
- *
- * Hibernate 6 시퀀스 전략 적용:
- *   - GenerationType.SEQUENCE + @SequenceGenerator 명시적 선언
- *   - allocationSize=50 으로 DB 시퀀스 호출 최소화 (batch insert 최적화)
- *   - 시퀀스명은 테이블명과 일치시켜 관리 용이성 확보
- */
 @Entity
 @Table(name = "products")
 @Getter
@@ -51,25 +43,45 @@ public class Product extends BaseEntity {
     @Column(nullable = false)
     private Long sellerId;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Category category;
+
     @Builder
     private Product(String name, BigDecimal price, Integer stockQuantity,
-                    String description, Long sellerId) {
+                    String description, Long sellerId, Category category) {
         this.name = name;
         this.price = price;
         this.stockQuantity = stockQuantity;
         this.description = description;
         this.sellerId = sellerId;
+        this.category = category;
         this.status = ProductStatus.ON_SALE;
+    }
+
+    public void update(String name, BigDecimal price, String description, Category category) {
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.category = category;
     }
 
     public void deductStock(int quantity) {
         if (this.stockQuantity < quantity) {
-            throw new IllegalStateException("재고가 부족합니다. 현재 재고: " + this.stockQuantity);
+            throw new IllegalStateException("Stock not enough. current: " + this.stockQuantity);
         }
         this.stockQuantity -= quantity;
     }
 
     public void restoreStock(int quantity) {
         this.stockQuantity += quantity;
+    }
+
+    public void delete() {
+        this.status = ProductStatus.DELETED;
+    }
+
+    public void updateStock(int stockQuantity) {
+        this.stockQuantity = stockQuantity;
     }
 }
